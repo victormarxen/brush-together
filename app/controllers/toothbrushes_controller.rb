@@ -15,7 +15,7 @@ class ToothbrushesController < ApplicationController
 
   def create
     @toothbrush = Toothbrush.new(toothbrush_params)
-    @toothbrush.user = current_user
+    @toothbrush.announcer = current_user
     if @toothbrush.save
       redirect_to toothbrush_path(@toothbrush), notice: 'Toothbrush was successfully created.'
     else
