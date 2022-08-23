@@ -1,0 +1,9 @@
+<h1>Toothbrushes</h1>
+
+<ul style="list-style: none;">
+<% @toothbrushes.each do |toothbrush| %>
+  <li><%= link_to toothbrush.title, toothbrush_path(toothbrush) %></li>
+<% end %>
+</ul>
+
+<%= link_to "Offer your own Toothbrush", new_toothbrush_path %>
