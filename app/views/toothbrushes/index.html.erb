@@ -2,7 +2,7 @@
 
 <ul style="list-style: none;">
 <% @toothbrushes.each do |toothbrush| %>
-
+  <%= render "shared/card" %>
   <li><%= link_to toothbrush.title, toothbrush_path(toothbrush) %></li>
 <% end %>
 </ul>
