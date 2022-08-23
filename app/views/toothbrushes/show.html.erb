@@ -1,7 +1,7 @@
 <%= link_to "⬅ Back", toothbrushes_path %>
 
 <h1><%= @toothbrush.title %></h1>
-<%# Implementation of Toothbrush image %>
+
 <div class="container">
   <% @toothbrush.photos.each do |photo| %>
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
