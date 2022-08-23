@@ -1,0 +1,14 @@
+<%= link_to "⬅ Back", toothbrushes_path %>
+
+<h1><%= @toothbrush.title %></h1>
+<%# Implementation of Toothbrush image %>
+
+<ul style="list-style: none;">
+  <h4> Description: <%= @toothbrush.description %></h4>
+  <p>Location: <%= @toothbrush.location %></p>
+  <p>Color: <%= @toothbrush.color %></p>
+  <p>Category: <%= @toothbrush.category %></p>
+  <p>Price: €<%= @toothbrush.daily_price %></p>
+</ul>
+
+ <%= link_to "Delete", toothbrush_path(@toothbrush), data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} %>
