@@ -7,6 +7,10 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
+User.destroy_all
+Toothbrush.destroy_all
+
+puts "seeding users.."
 20.times do |user|
   data = Faker::Internet.user('username', 'email', 'password')
   user = User.new(
@@ -15,4 +19,17 @@ require 'faker'
     password: data[:password],
   )
   user.save!
+end
+
+puts "seeding toothbrushes.."
+20.times do
+  toothbrush = Toothbrush.new(
+    title: Faker::Creature::Animal.name,
+    description: Faker::Quote.matz,
+    color: Faker::Color.color_name,
+    category: Faker::Creature::Dog.breed
+  )
+  toothbrush.announcer = User.first
+  toothbrush.save!
+  puts "toothbrush created!"
 end
