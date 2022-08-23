@@ -3,7 +3,7 @@
   <%= f.input :description, placeholder: "How would you describe your toothbrush ?" %>
   <%= f.input :location, placeholder: "Where is your toothbrush located ?" %>
   <%= f.input :color, collection: ["Black", "White", "Grey", "Red", "Blue", "Green", "Multicoloured"], placeholder: "What is the color of your toothbrush ?" %>
-  <%= f.input :type, collection: ["Electric", "Manual", "Other"], placeholder: "Please select the type of your toothbrush." %>
-   <%= f.input :daily_price, input_html: { min: '0', step: '0.25' }, placeholder: "Price (€)" %>
+  <%= f.input :category, collection: ["Electric", "Manual", "Other"], placeholder: "Please select the type of your toothbrush." %>
+  <%= f.input :daily_price, input_html: { min: '0', step: '0.25' }, placeholder: "Price (€)" %>
   <%= f.submit "Offer", class: "btn btn-primary" %>
 <% end %>
