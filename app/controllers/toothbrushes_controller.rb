@@ -1,5 +1,5 @@
 class ToothbrushesController < ApplicationController
-  before_action :set_list, only: %i[show edit update destroy]
+  before_action :set_toothbrush, only: %i[show edit update destroy]
 
   def index
     @toothbrushes = Toothbrush.all
