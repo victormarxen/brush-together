@@ -1,0 +1,75 @@
+.card-toothbrush {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.toothbrush-image {
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a {
+ text-decoration: none;
+}
+
+.toothbrush-image:hover {
+  -webkit-filter: brightness(85%);
+  .more-info {
+    opacity: 1;
+    color: white;
+  }
+}
+
+.more-info {
+  opacity: 0;
+}
+
+.card-toothbrush h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-toothbrush p {
+  font-size: 12px;
+  margin: 0;
+}
+
+
+.card-toothbrush .card-toothbrush-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-toothbrush-infos .card-toothbrush-owner {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+// .btn-flat {
+//   color: white;
+//   font-size: 10px;
+//   padding: 8px 20px;
+//   border-radius: 4px;
+//   background: #db2323;
+//   transition: background 0.3s ease;
+// }
+
+// .btn-flat:hover {
+//   position: absolute;
+//   padding: 50%;
+//   background: #cc1d1d;
+//   color: white;
+// }

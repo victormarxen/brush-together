@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2022_08_23_152933) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +57,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_152933) do
     t.index ["toothbrush_id"], name: "index_reservations_on_toothbrush_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "toothbrush_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["toothbrush_id"], name: "index_reviews_on_toothbrush_id"
+  end
+
   create_table "toothbrushes", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -83,7 +94,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_152933) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  
   add_foreign_key "reservations", "toothbrushes"
   add_foreign_key "reservations", "users", column: "booker_id"
   add_foreign_key "toothbrushes", "users", column: "announcer_id"
+  add_foreign_key "reviews", "toothbrushes"
 end
