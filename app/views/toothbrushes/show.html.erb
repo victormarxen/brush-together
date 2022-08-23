@@ -2,7 +2,11 @@
 
 <h1><%= @toothbrush.title %></h1>
 <%# Implementation of Toothbrush image %>
-
+<div class="container">
+  <% @toothbrush.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+</div>
 <ul style="list-style: none;">
   <h4> Description: <%= @toothbrush.description %></h4>
   <p>Location: <%= @toothbrush.location %></p>

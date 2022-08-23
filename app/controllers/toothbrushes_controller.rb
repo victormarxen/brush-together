@@ -32,7 +32,7 @@ class ToothbrushesController < ApplicationController
 
   def destroy
     @toothbrush.destroy
-    redirect_to toothbrushs_path, status: :see_other
+    redirect_to toothbrushes_path, status: :see_other
   end
 
   private
