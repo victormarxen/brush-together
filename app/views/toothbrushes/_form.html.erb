@@ -5,5 +5,6 @@
   <%= f.input :color, collection: ["Black", "White", "Grey", "Red", "Blue", "Green", "Multicoloured"], placeholder: "What is the color of your toothbrush ?" %>
   <%= f.input :category, collection: ["Electric", "Manual", "Other"], placeholder: "Please select the type of your toothbrush." %>
   <%= f.input :daily_price, input_html: { min: '0', step: '0.25' }, placeholder: "Price (€)" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.submit "Offer", class: "btn btn-primary" %>
 <% end %>
