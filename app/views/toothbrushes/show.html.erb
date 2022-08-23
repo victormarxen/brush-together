@@ -16,3 +16,14 @@
 </ul>
 
  <%= link_to "Delete", toothbrush_path(@toothbrush), data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} %>
+
+ <h3>Reviews</h3>
+<ul class="list-group">
+  <% @toothbrush.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.comment %> (Rating: <%= review.rating %> / 5)</li>
+  <% end %>
+</ul>
+<br>
+
+<h5>Add your review below:</h5>
+<%= render 'reviews/form', toothbrush: @toothbrush, review: @review %>

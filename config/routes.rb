@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :toothbrushes do
+    resources :reviews, only: %i[index create]
     resources :reservations
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get "/cards", to: "pages#cards"
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :reviews, only: :destroy
+
 end

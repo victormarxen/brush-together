@@ -95,5 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_153107) do
   add_foreign_key "reservations", "toothbrushes"
   add_foreign_key "reservations", "users", column: "booker_id"
   add_foreign_key "reviews", "toothbrushes"
-  add_foreign_key "toothbrushes", "users"
+
+  add_foreign_key "toothbrushes", "users", column: "announcer_id"
 end
