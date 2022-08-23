@@ -7,7 +7,7 @@ class CreateToothbrushes < ActiveRecord::Migration[7.0]
       t.string :color
       t.string :type
       t.float :daily_price
-      t.references :user, null: false, foreign_key: true
+      t.references :announcer, null: false, foreign_key: { to_table: :users }
 
       t.timestamps
     end

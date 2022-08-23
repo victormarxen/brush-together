@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_153107) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_08_23_152933) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +44,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_153107) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "toothbrush_id", null: false
+    t.bigint "booker_id", null: false
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.float "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.index ["booker_id"], name: "index_reservations_on_booker_id"
+    t.index ["toothbrush_id"], name: "index_reservations_on_toothbrush_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -58,10 +73,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_153107) do
     t.string "color"
     t.string "category"
     t.float "daily_price"
-    t.bigint "user_id", null: false
+    t.bigint "announcer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_toothbrushes_on_user_id"
+    t.index ["announcer_id"], name: "index_toothbrushes_on_announcer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,6 +94,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_153107) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  
+  add_foreign_key "reservations", "toothbrushes"
+  add_foreign_key "reservations", "users", column: "booker_id"
+  add_foreign_key "toothbrushes", "users", column: "announcer_id"
   add_foreign_key "reviews", "toothbrushes"
-  add_foreign_key "toothbrushes", "users"
 end
