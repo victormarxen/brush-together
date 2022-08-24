@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :toothbrushes
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :toothbrushes do
+    resources :reviews, only: %i[index create]
+    resources :reservations
+  end
+  resources :reviews, only: :destroy
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

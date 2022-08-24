@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Find the best toothbrush offers around you!</h2>
+
+  <div class="cards">
+    <% @toothbrushes.each do |toothbrush| %>
+      <div class="card-toothbrush">
+        <%= link_to "more info", toothbrush_path(toothbrush) %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Create an Offer", new_toothbrush_path %>
+</div>
