@@ -1,12 +1,13 @@
 <div class="container">
   <h2>Find the best toothbrush offers around you!</h2>
-
-  <div class="cards">
-    <% @toothbrushes.each do |toothbrush| %>
-      <div class="card-toothbrush">
-        <%= link_to "more info", toothbrush_path(toothbrush) %>
-      </div>
-    <% end %>
+  <div class="cards-container">
+    <div class="cards">
+    </div>
+    <div class='map'
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">ola
+    </div>
   </div>
 </div>
 <div class="container">
