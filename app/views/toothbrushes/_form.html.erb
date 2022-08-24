@@ -1,10 +1,13 @@
 <%= simple_form_for(toothbrush) do |f| %>
   <%= f.input :title, placeholder: "What is the name of your toothbrush ?" %>
   <%= f.input :description, placeholder: "How would you describe your toothbrush ?" %>
-  <%= f.input :location, placeholder: "Where is your toothbrush located ?" %>
   <%= f.input :color, collection: ["Black", "White", "Grey", "Red", "Blue", "Green", "Multicoloured"], placeholder: "What is the color of your toothbrush ?" %>
   <%= f.input :category, collection: ["Electric", "Manual", "Other"], placeholder: "Please select the type of your toothbrush." %>
   <%= f.input :daily_price, input_html: { min: '0', step: '0.25' }, placeholder: "Price (€)" %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+   <%= f.input :location,
+    input_html: {data: {location_autocomplete_target: "location"}, class: "d-none"},
+    wrapper_html: {data: {controller: "location-autocomplete", location_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}, placeholder: "Where is your toothbrush located ?"
+  %>
   <%= f.submit "Offer", class: "btn btn-primary" %>
 <% end %>
