@@ -39,14 +39,13 @@
   }
 }
 
-
 .card-toothbrush {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.toothbrush-image {
+.card-toothbrush image {
   height: 200px;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,11 +56,11 @@
   align-items: center;
 }
 
-a {
+.card-toothbrush a {
  text-decoration: none;
 }
 
-.toothbrush-image:hover {
+.card-toothbrush image:hover {
   -webkit-filter: brightness(85%);
   .more-info {
     opacity: 1;

@@ -1,7 +1,19 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.healthshots.com/healthshots/en/uploads/2021/01/27195347/storing-toothbrush.jpg);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(assets/Brush1.jpg);">
   <div class="container">
-    <h1>Welcome to Brush Together <strong>trade</strong> your brushes <strong>with people</strong>!</h1>
+    <h1>Share your Toothbrush with others!</h1>
   </div>
 </div>
 
-<%= link_to "Offer your own Toothbrush", new_toothbrush_path %>
+<div class="container">
+  <%= link_to "Offer your own Toothbrush", new_toothbrush_path, class: 'btn btn-info' %>
+</div>
+
+<br>
+
+<div class="container">
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>

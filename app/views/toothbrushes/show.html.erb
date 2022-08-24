@@ -1,30 +1,37 @@
 <%= link_to "⬅ Back", toothbrushes_path %>
 
-<h1><%= @toothbrush.title %></h1>
-
 <div class="container">
-  <% @toothbrush.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+  <h1><%= @toothbrush.title %></h1>
+
+  <div class="container">
+    <% @toothbrush.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  </div>
+
+  <ul style="list-style: none;">
+    <h4> Description: <%= @toothbrush.description %></h4>
+    <p>Location: <%= @toothbrush.location %></p>
+    <p>Color: <%= @toothbrush.color %></p>
+    <p>Category: <%= @toothbrush.category %></p>
+    <p>Price: €<%= @toothbrush.daily_price %></p>
+  </ul>
+
+    <%= link_to "Book", new_toothbrush_reservation_path(@toothbrush), class: 'btn btn-primary' %>
+
+    <%= link_to "Delete", toothbrush_path(@toothbrush), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} if policy(@toothbrush).destroy? %>
 </div>
-<ul style="list-style: none;">
-  <h4> Description: <%= @toothbrush.description %></h4>
-  <p>Location: <%= @toothbrush.location %></p>
-  <p>Color: <%= @toothbrush.color %></p>
-  <p>Category: <%= @toothbrush.category %></p>
-  <p>Price: €<%= @toothbrush.daily_price %></p>
-</ul>
 
-  <%= link_to "Book", new_toothbrush_reservation_path(@toothbrush), class: 'btn btn-primary' %>
-  <%= link_to "Delete", toothbrush_path(@toothbrush), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} %>
-
- <h3>Reviews</h3>
-<ul class="list-group">
-  <% @toothbrush.reviews.each do |review| %>
-    <li class="list-group-item"><%= review.comment %> (Rating: <%= review.rating %> / 5)</li>
-  <% end %>
-</ul>
 <br>
+<div class="container">
+  <h3>Reviews</h3>
+  <ul class="list-group">
+    <% @toothbrush.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.comment %> (Rating: <%= review.rating %> / 5)</li>
+    <% end %>
+  </ul>
+  <br>
 
-<h5>Add your review below:</h5>
-<%= render 'reviews/form', toothbrush: @toothbrush, review: @review %>
+  <h5>Add your review below:</h5>
+  <%= render 'reviews/form', toothbrush: @toothbrush, review: @review %>
+</div>

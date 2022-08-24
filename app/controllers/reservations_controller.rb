@@ -4,21 +4,38 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
+    @reservations = policy_scope(Reservation)
   end
 
   def new
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
     @reservation = Reservation.new(reservation_params)
     @reservation.booker = current_user
     @reservation.toothbrush = @toothbrush
+    authorize @reservation
     if @reservation.save
       redirect_to toothbrush_path(@toothbrush), notice: 'Reservation requested.'
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @reservation = Reservation.find(params[:id])
+    authorize @reservation
+    @reservation.destroy
+    redirect_to toothbrushes_path, status: :see_other
+  end
+
+  def announcer_pending
+    # authorize @reservation
+    toothbrushes = Toothbrush.where(announcer: current_user)
+    @reservations = Reservation.where(toothbrush: toothbrushes)
+    render 'reservations/announcer_pending'
   end
 
   private

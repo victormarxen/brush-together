@@ -3,11 +3,13 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.where(toothbrush_id: @toothbrush_id)
+    @reviews = policy_scope(Review)
   end
 
   def create
     @review = Review.new(review_params)
     @review.toothbrush = @toothbrush
+    authorize @review
     if @review.save
       redirect_to toothbrush_path(@toothbrush), notice: 'Review was successfully created.'
     else
@@ -17,6 +19,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
+    authorize @review
     @review.destroy
     redirect_to review_path, status: :see_other
   end
