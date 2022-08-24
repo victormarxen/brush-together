@@ -1,2 +1,5 @@
-<h2><%= toothbrush.title %></h2>
-<p><%= toothbrush.location %></p>
+<div class="container">
+  <h3><%= toothbrush.title %></h3>
+  <h6><%= toothbrush.location %></h6>
+  <%= link_to "See Toothbrush", toothbrush_path(toothbrush), class: "btn btn-primary" %>
+</div>
