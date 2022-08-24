@@ -1,10 +1,12 @@
-<h1>Toothbrushes</h1>
+<div class="container">
+  <h2>Find the best toothbrush offers around you!</h2>
 
-<ul style="list-style: none;">
-<% @toothbrushes.each do |toothbrush| %>
-  <%# <%= render "shared/card" %>
-  <li><%= link_to toothbrush.title, toothbrush_path(toothbrush) %></li>
-<% end %>
-</ul>
-
-<%= link_to "Create an Offer", new_toothbrush_path %>
+  <div class="cards">
+    <% @toothbrushes.each do |toothbrush| %>
+      <div class="card-toothbrush">
+        <%= link_to "more info", toothbrush_path(toothbrush) %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to "Create an Offer", new_toothbrush_path %>
+</div>

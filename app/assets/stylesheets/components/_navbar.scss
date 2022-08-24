@@ -1,12 +1,14 @@
-.navbar-lewagon {
+.navbar-brush {
+  // position: fixed;
   justify-content: space-between;
-  background: white;
+  background: rgb(222, 236, 245);
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-brush .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-brush .navbar-brand img {
   width: 40px;
+  background: transparent;
 }
