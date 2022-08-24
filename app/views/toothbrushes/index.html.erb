@@ -3,12 +3,21 @@
 
   <div class="cards">
     <% @toothbrushes.each do |toothbrush| %>
-      <div class="card-toothbrush">
-        <%= link_to "more info", toothbrush_path(toothbrush) %>
+      <div class="card-trip">
+        <%= cl_image_tag toothbrush.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= toothbrush.title %></h2>
+            <p><%= toothbrush.description %></p>
+          </div>
+          <h2 class="card-trip-pricing">$ <%= toothbrush.daily_price %></h2>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
+<br>
+
 <div class="container">
   <%= link_to "Create an Offer", new_toothbrush_path, class: 'btn btn-info' %>
 </div>
