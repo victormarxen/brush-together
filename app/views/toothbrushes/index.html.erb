@@ -1,10 +1,11 @@
-<h1>Toothbrushes</h1>
+<h1> Browse our Beautiful Toothbrushes </h1> <br>
 
-<ul style="list-style: none;">
-<% @toothbrushes.each do |toothbrush| %>
-  <%# <%= render "shared/card" %>
-  <li><%= link_to toothbrush.title, toothbrush_path(toothbrush) %></li>
-<% end %>
-</ul>
+<div class="container">
+  <div class="cards">
+    <% @toothbrushes.each do |toothbrush| %>
+      <%= render "shared/card", toothbrush: toothbrush %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "Create an Offer", new_toothbrush_path %>
