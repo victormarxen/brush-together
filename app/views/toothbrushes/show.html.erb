@@ -15,7 +15,8 @@
   <p>Price: €<%= @toothbrush.daily_price %></p>
 </ul>
 
- <%= link_to "Delete", toothbrush_path(@toothbrush), data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} %>
+  <%= link_to "Book", new_toothbrush_reservation_path(@toothbrush), class: 'btn btn-primary' %>
+  <%= link_to "Delete", toothbrush_path(@toothbrush), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} %>
 
  <h3>Reviews</h3>
 <ul class="list-group">
