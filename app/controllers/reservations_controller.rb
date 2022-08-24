@@ -31,6 +31,13 @@ class ReservationsController < ApplicationController
     redirect_to toothbrushes_path, status: :see_other
   end
 
+  def announcer_pending
+    # authorize @reservation
+    toothbrushes = Toothbrush.where(announcer: current_user)
+    @reservations = Reservation.where(toothbrush: toothbrushes)
+    render 'reservations/announcer_pending'
+  end
+
   private
 
   def set_toothbrush

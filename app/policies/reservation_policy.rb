@@ -13,4 +13,8 @@ class ReservationPolicy < ApplicationPolicy
   def destroy?
     record.user == user
   end
+
+  def announcer_pending?
+    true
+  end
 end
