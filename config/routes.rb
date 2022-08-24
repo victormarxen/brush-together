@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: :destroy
 
+  get '/my_reservations', to: 'reservations#announcer_pending'
 end

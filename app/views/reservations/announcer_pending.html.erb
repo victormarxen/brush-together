@@ -1,0 +1,6 @@
+<% @reservations.each do |res| %>
+  <%= res.toothbrush.title %>
+  <%= res.booker.username %>
+  <%= res.start_date %>
+  <%= res.end_date %>
+<% end %>
