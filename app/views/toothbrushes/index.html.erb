@@ -8,9 +8,11 @@
         <div class="card-trip-infos">
           <div>
             <h2><%= toothbrush.title %></h2>
-            <p><%= toothbrush.description %></p>
+            <p><%= toothbrush.category %></p>
+            <p><%= toothbrush.location %></p>
           </div>
           <h2 class="card-trip-pricing">$ <%= toothbrush.daily_price %></h2>
+          <%= link_to ('<i class="fa-solid fa-plus"></i>').html_safe, toothbrush_path(toothbrush.id), class: 'btn-more-info' %>
         </div>
       </div>
     <% end %>
