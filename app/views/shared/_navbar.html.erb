@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-brush">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "Logo3.png", id: "logo" %>
@@ -13,16 +13,13 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Sign Up", "#", class: "nav-link big-padding" %>
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-primary big-padding" href="#">Login</a>
+            <%= link_to "Create Offer", toothbrushes_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown d-flex align-items-center">
             <%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Account", "#", class: "dropdown-item" %>
-              <%= link_to "Create an offer", "#", class: "dropdown-item" %>
+              <%= link_to "My Offers", "#", class: "dropdown-item" %>
+              <%= link_to "My Reservations", "/my_reservations", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
