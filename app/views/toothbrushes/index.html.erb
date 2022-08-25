@@ -1,14 +1,36 @@
 <div class="container">
   <h2>Find the best toothbrush offers around you!</h2>
+</div>
 
+<div class="cards-container">
   <div class="cards">
     <% @toothbrushes.each do |toothbrush| %>
-      <div class="card-toothbrush">
-        <%= link_to "more info", toothbrush_path(toothbrush) %>
+      <div class="card-trip">
+        <% if !toothbrush.photos.first.nil? %>
+          <%= cl_image_tag toothbrush.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag 'no_image.jpg', height: 300, width: 400 %>
+        <% end %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= toothbrush.title %></h2>
+            <p><%= toothbrush.category %></p>
+            <p><%= toothbrush.location %></p>
+          </div>
+          <h2 class="card-trip-pricing">$ <%= toothbrush.daily_price %></h2>
+          <%= link_to ('<i class="fa-solid fa-plus"></i>').html_safe, toothbrush_path(toothbrush.id), class: 'btn-more-info' %>
+        </div>
       </div>
     <% end %>
   </div>
+  <div class="map" data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
+
+<br>
+
 <div class="container">
   <%= link_to "Create an Offer", new_toothbrush_path, class: 'btn btn-info' %>
 </div>
