@@ -1,26 +1,34 @@
+<br>
 <% if @my_reservations.blank? && @my_bookings.blank? %>
   <div class="container">
-    <h3>You have no bookings or reservation requests</h3>
+    <h4>You have no bookings or reservation requests</h4>
   </div>
 <% end %>
 
 
-  <div class="container"></div>
-  <% if @my_reservations.any? %>
-    <h2>My Reservation Requests</h2>
-    <% @my_reservations.each do |my_res| %>
+<% if @my_reservations.any? %>
+  <div class="container">
+    <h2>My reservations requests</h2>
+    <div class="reservations">
+      <% @my_reservations.each do |res| %>
         <div class="reservation">
+          <% if res.toothbrush.photos.any? %>
+            <%= image_tag cl_image_path res.toothbrush.photos.first.key %>
+          <% else %>
+            <%= image_tag "no_image.jpg" %>
+          <% end %>
           <div class="reservation-content">
-            <% if my_res.toothbrush.photos.any? %>
-              <%= cl_image_path my_res.toothbrush.photos.first.key %>
-            <% else %>
-              <%= asset_path("no_image.jpg") %>
-            <% end %>
-            <p><small><%= my_res.start_date %></small></p>
-            <p><%= my_res.toothbrush.title %></p>
+            <p><%= res.toothbrush.title %></p>
+            <p>From: <small><%= res.start_date.strftime("%d/%m/%Y %H:%M") %></small>
+              to: <small><%= res.end_date.strftime("%d/%m/%Y %H:%M") %></small></p>
+            <p><%= res.toothbrush.location %></p>
           </div>
-          <div class="reservation-actions">
-            <%= link_to ('<i class="fas fa-user-plus"></i>').html_safe, reservation_path(my_res.id), method: 'put', class: 'btn-more-info' %>
+          <div class="reservation-actions" data-controller='confirm-reservation' data-action="click->>
+            <% if res.confirmed? %>
+              <i class="fa-solid fa-calendar-check confirmed"></i>
+            <% else %>
+              <i class="fa-solid fa-calendar-check not-confirmed"></i>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -35,13 +43,15 @@
       <% @my_bookings.each do |book| %>
         <div class="reservation">
           <% if book.toothbrush.photos.any? %>
-            <%= cl_image_path book.toothbrush.photos.first.key %>
+            <%= image_tag cl_image_path book.toothbrush.photos.first.key %>
           <% else %>
             <%= image_tag "no_image.jpg" %>
           <% end %>
-          <div class="reservation-content">
-            <p><small><%= book.start_date %></small></p>
+         <div class="reservation-content">
             <p><%= book.toothbrush.title %></p>
+            <p>From: <small><%= book.start_date.strftime("%d/%m/%Y %H:%M") %></small>
+              to: <small><%= book.end_date.strftime("%d/%m/%Y %H:%M") %></small></p>
+            <p><%= book.toothbrush.location %></p>
           </div>
           <div class="reservation-actions">
             <% if book.confirmed? %>
@@ -49,7 +59,6 @@
             <% else %>
               <i class="fa-solid fa-calendar-check not-confirmed"></i>
             <% end %>
-              <%# <%= link_to ('<i class="fas fa-user-plus"></i>').html_safe, reservation_path(book.id), method: 'put', class: 'btn-more-info' %>
           </div>
         </div>
       <% end %>

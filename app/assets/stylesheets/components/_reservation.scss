@@ -34,7 +34,7 @@
   font-weight: bold;
 }
 .reservation .reservation-actions {
-  opacity: 0;
+  opacity: 0.5;
   display: flex;
   transition: ease .3s;
 }
@@ -47,10 +47,16 @@
   color: rgb(156, 146, 55);
   font-size: 50px;
 }
+.reservation .reservation-actions .confirmed:hover {
+  cursor: pointer;
+}
 
+.reservation .reservation-actions .not-confirmed:hover {
+  cursor: pointer;
+}
 
 .reservation:hover .reservation-actions {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .reservation .reservation-actions a {
