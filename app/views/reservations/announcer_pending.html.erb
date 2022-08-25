@@ -1,6 +1,16 @@
-<% @reservations.each do |res| %>
-  <%= res.toothbrush.title %>
-  <%= res.booker.username %>
-  <%= res.start_date %>
-  <%= res.end_date %>
-<% end %>
+<div class="container">
+  <div class="reservations">
+    <% @reservations.each do |res| %>
+      <div class="reservation">
+        <img src="" class="avatar-large">
+        <div class="reservation-content">
+          <p><small><%= res.start_date %></small></p>
+          <p><%= res.toothbrush.title %></p>
+        </div>
+        <div class="reservation-actions">
+          <%= link_to ('<i class="fa-solid fa-plus"></i>').html_safe, reservation_path(res.id), method: 'patch', class: 'btn-more-info' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

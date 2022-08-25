@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Find the best toothbrush offers around you!</h2>
+ <h2>Find your Brush Below!</h2>
 </div>
 
 <%= form_with url: toothbrushes_path, method: :get, class: "d-flex my-3" do %>
@@ -14,27 +14,32 @@
 <div class="cards-container">
   <div class="cards">
     <% @toothbrushes.each do |toothbrush| %>
-      <div class="card-trip">
-        <% if !toothbrush.photos.first.nil? %>
-          <%= cl_image_tag toothbrush.photos.first.key, height: 300, width: 400, crop: :fill %>
-        <% else %>
-          <%= image_tag 'no_image.jpg', height: 300, width: 400 %>
+      <div class="card-toothbrush">
+        <%= link_to toothbrush_path(toothbrush.id) do %>
+          <% if !toothbrush.photos.first.nil? %>
+            <div class="toothbrush-background-image" style="background-image: url('<%= cl_image_path toothbrush.photos.first.key %>');"></div>
+          <% else %>
+            <div class="toothbrush-background-image" style="background-image: url(<%= asset_path("no_image.jpg") %>);"></div>
+          <% end %>
         <% end %>
-        <div class="card-trip-infos">
+
+        <div class="card-toothbrush-infos">
           <div>
             <h2><%= toothbrush.title %></h2>
-            <p><%= toothbrush.category %></p>
             <p><%= toothbrush.location %></p>
+            <p><%= toothbrush.category %></p>
           </div>
-          <h2 class="card-trip-pricing">$ <%= toothbrush.daily_price %></h2>
-          <%= link_to ('<i class="fa-solid fa-plus"></i>').html_safe, toothbrush_path(toothbrush.id), class: 'btn-more-info' %>
+          <h2 class="card-toothbrush-pricing">$ <%= toothbrush.daily_price %></h2>
+          <div class="btn-like" roler="button" style="background-image:  url('assets/heart-button.jpeg');" id="round-avatar">
+          </div>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="map" data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div style="width: 40%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
 
@@ -43,3 +48,4 @@
 <div class="container">
   <%= link_to "Create an Offer", new_toothbrush_path, class: 'btn btn-info' %>
 </div>
+5
