@@ -4,104 +4,26 @@
   grid-gap: 16px;
 }
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .cards {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-.card-toothbrush {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.card-toothbrush image {
-  height: 200px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-decoration: none;
+.cards-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 30px;
+}
+.cards-container .cards {
+  flex-grow: 1;
 }
 
-.card-toothbrush a {
- text-decoration: none;
-}
+.cards-container .map {
+  position: sticky;
+  top: 0;
+  width: 30%;
 
-.card-toothbrush image:hover {
-  -webkit-filter: brightness(85%);
-  .more-info {
-    opacity: 1;
-    color: white;
-  }
-}
-
-.more-info {
-  opacity: 0;
-}
-
-.card-toothbrush h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-toothbrush p {
-  font-size: 12px;
-  margin: 0;
-}
-
-
-.card-toothbrush .card-toothbrush-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-toothbrush-infos .card-toothbrush-owner {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
 }
 
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 400px;
 }
 
 .card-trip > img {
@@ -137,18 +59,99 @@
   top: -20px;
   width: 40px;
 }
-// .btn-flat {
-//   color: white;
-//   font-size: 10px;
-//   padding: 8px 20px;
-//   border-radius: 4px;
-//   background: #db2323;
-//   transition: background 0.3s ease;
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+
+// .card-toothbrush {
+//   overflow: hidden;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 // }
 
-// .btn-flat:hover {
+// .card-toothbrush image {
+//   height: 200px;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   text-decoration: none;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+// }
+
+// .card-toothbrush a {
+//  text-decoration: none;
+// }
+
+// .card-toothbrush image:hover {
+//   -webkit-filter: brightness(85%);
+//   .more-info {
+//     opacity: 1;
+//     color: white;
+//   }
+// }
+
+// .more-info {
+//   opacity: 0;
+// }
+
+// .card-toothbrush h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+// }
+
+// .card-toothbrush p {
+//   font-size: 12px;
+//   margin: 0;
+// }
+
+
+// .card-toothbrush .card-toothbrush-infos {
+//   padding: 16px;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+// }
+
+// .card-toothbrush-infos .card-toothbrush-owner {
 //   position: absolute;
-//   padding: 50%;
-//   background: #cc1d1d;
-//   color: white;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
 // }
