@@ -1,10 +1,22 @@
 class ToothbrushesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_toothbrush, only: %i[show edit update destroy]
 
   def index
-    @toothbrushes = Toothbrush.all
-    @toothbrushes = policy_scope(Toothbrush)
+
+    if params[:query].present?
+      @toothbrushes = policy_scope(Toothbrush.search_by_info(params[:query]))
+    else
+      @toothbrushes = policy_scope(Toothbrush)
+    end
+    @markers = @toothbrushes.map do |toothbrush|
+      {
+        lat: toothbrush.latitude,
+        lng: toothbrush.longitude,
+        info_window: render_to_string(partial: "pages/info_window", locals: {toothbrush: toothbrush}),
+        image_url: helpers.asset_url("brush.jpg")
+      }
+    end
   end
 
   def show

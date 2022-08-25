@@ -12,4 +12,11 @@ class Toothbrush < ApplicationRecord
   validates :color, presence: true
   validates :category, presence: true
   validates :daily_price, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :search_by_info,
+  against: %i[title location color category],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
