@@ -11,10 +11,14 @@
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
   </head>
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="page-container">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <main id="main-content">
+        <%= yield %>
+      </main>
+      <p class="notice"><%= notice %></p>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
