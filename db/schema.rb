@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2022_08_25_160324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_160324) do
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.boolean "confirmed", default: false
     t.index ["booker_id"], name: "index_reservations_on_booker_id"
     t.index ["toothbrush_id"], name: "index_reservations_on_toothbrush_id"
   end
@@ -73,12 +74,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_25_160324) do
     t.string "color"
     t.string "category"
     t.float "daily_price"
-    t.bigint "announcer_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.index ["announcer_id"], name: "index_toothbrushes_on_announcer_id"
+    t.index ["user_id"], name: "index_toothbrushes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
