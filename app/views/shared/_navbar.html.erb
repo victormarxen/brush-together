@@ -7,6 +7,14 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= form_with url: toothbrushes_path, method: :get, class: "d-flex my-3" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find your toothbrush"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
           <%= link_to "Browse Offers", toothbrushes_path, class: "nav-link" %>
