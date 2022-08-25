@@ -3,7 +3,6 @@ class ToothbrushesController < ApplicationController
   before_action :set_toothbrush, only: %i[show edit update destroy]
 
   def index
-
     if params[:query].present?
       @toothbrushes = policy_scope(Toothbrush.search_by_info(params[:query]))
     else
@@ -20,6 +19,7 @@ class ToothbrushesController < ApplicationController
   end
 
   def show
+    
     @review = Review.new
     authorize @toothbrush
   end
