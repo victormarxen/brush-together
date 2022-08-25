@@ -1,26 +1,11 @@
-.navbar-brush {
-  // position: fixed;
-  justify-content: space-between;
-  background: rgb(222, 236, 245);
-}
-
-.navbar-brush .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-brush .navbar-brand img {
-  width: 40px;
-  background: transparent;
-}
-
-.navbar-lewagon {
+.navbar-webrush {
   background-color: transparent;
   transition: 0.5s background-color ease;
   justify-content: space-between;
   background: white;
 }
 
-.navbar-lewagon-white {
+.navbar-webrush-white {
   background-color: white;
 }
 
@@ -32,13 +17,14 @@
   padding: 20px 30px;
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-webrush .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-webrush .navbar-brand img {
   width: 40px;
 }
+
 .banner {
   background-size: cover;
   background-position: center;
@@ -59,3 +45,4 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(144, 161, 217, 0.56);
 }
+

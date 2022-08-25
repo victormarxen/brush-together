@@ -1,7 +1,85 @@
+.container{
+  // height: 100px;
+  text-align: center;
+  // background-image: url('toothbrush-banner.jpg');
+  // background-size: cover;
+  // margin-left: 0px;
+  // margin-right: 0px;
+}
+
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.cards-container {
+  display: flex;
+  padding: 30px;
+}
+.cards-container .cards {
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.cards-container .map {
+  position: sticky;
+  top: 0;
+  width: 35%;
+  // padding-left: 20px;
+  // height: 1000px;
+  // height: 100%;
+}
+
+.card-toothbrush {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  max-width: 400px;
+}
+
+.card-toothbrush image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-toothbrush h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-toothbrush p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.toothbrush-background-image{
+  height: 200px;
+  width: 100%;
+  background-size: cover;
+}
+
+.toothbrush-background-image:hover{
+  -webkit-filter: brightness(85%);
+}
+
+
+.card-toothbrush .card-toothbrush-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-toothbrush-infos .card-toothbrush-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }
 
 // Smallest device
@@ -38,78 +116,15 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
-.card-toothbrush {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
 
-.card-toothbrush image {
-  height: 200px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card-toothbrush a {
- text-decoration: none;
-}
-
-.card-toothbrush image:hover {
-  -webkit-filter: brightness(85%);
-  .more-info {
-    opacity: 1;
-    color: white;
-  }
-}
-
-.more-info {
-  opacity: 0;
-}
-
-.card-toothbrush h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.card-toothbrush p {
-  font-size: 12px;
-  margin: 0;
-}
-
-
-.card-toothbrush .card-toothbrush-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.card-toothbrush-infos .card-toothbrush-owner {
+.btn-like {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: 10px;
+  top: -190px;
   width: 40px;
+  }
+
+.btn-like:hover{
+  border-color: red;
+  cursor: pointer;
 }
-
-// .btn-flat {
-//   color: white;
-//   font-size: 10px;
-//   padding: 8px 20px;
-//   border-radius: 4px;
-//   background: #db2323;
-//   transition: background 0.3s ease;
-// }
-
-// .btn-flat:hover {
-//   position: absolute;
-//   padding: 50%;
-//   background: #cc1d1d;
-//   color: white;
-// }

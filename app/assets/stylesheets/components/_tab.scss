@@ -1,0 +1,15 @@
+.tab {
+  display: flexbox;
+  text-decoration: none;
+  padding: 10px;
+  color: grey;
+}
+.tab.active {
+  border-bottom:solid 3px black;
+  color: black;
+  font-weight: 800;
+}
+.tab:hover {
+  color: black;
+  font-weight: 600;
+}
