@@ -4,7 +4,11 @@
   <div class="cards">
     <% @toothbrushes.each do |toothbrush| %>
       <div class="card-trip">
-        <%= cl_image_tag toothbrush.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% if !toothbrush.photos.first.nil? %>
+          <%= cl_image_tag toothbrush.photos.first.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <%= image_tag 'no_image.jpg', height: 300, width: 400 %>
+        <% end %>
         <div class="card-trip-infos">
           <div>
             <h2><%= toothbrush.title %></h2>
