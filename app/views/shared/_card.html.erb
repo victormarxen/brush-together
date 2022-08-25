@@ -1,15 +1,17 @@
 <div class="card-toothbrush">
   <%= link_to root_path do %>
-    <div style="background-image: url(<%= asset_path("greece.jpeg") %>);" class="toothbrush-image">
+    <div style="background-image: url(<%#= cl_image_path toothbrush.photos.first.key %>);" class="toothbrush-image">
       <p class="more-info"> more info </p>
     </div>
     <% end %>
    <div class="card-toothbrush-infos">
        <div>
-        <h2>Blue Toothbrush</h2>
-        <p>Bamboo toothbrush painted blue available to rent!</p>
+        <h2><%= toothbrush.title %></h2>
+        <p>Reviews</p>
     </div>
-        <h2 class="card-toothbrush-pricing">£9.99 Per Night</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-toothbrush-owner avatar-bordered" id="round-avatar"/>
+        <h2 class="card-toothbrush-pricing">
+        <%= toothbrush.daily_price %></h2>
+        <div class="card-toothbrush-owner avatar-bordered" style="background-image:  url('assets/heart-icon.png');" id="round-avatar">
+       </div>
   </div>
 </div>
