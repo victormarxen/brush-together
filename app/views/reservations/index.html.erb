@@ -1,21 +1,21 @@
-<% if @my_reservations.nil? && @my_bookings.nil? %>
+<% if @my_reservations.blank? && @my_bookings.blank? %>
   <div class="container">
     <h3>You have no bookings or reservation requests</h3>
   </div>
 <% end %>
 
-<div class="reservations">
 
-</div>
-
-<% if !@my_reservations.nil? %>
-  <div class="container">
+  <div class="container"></div>
+  <% if @my_reservations.any? %>
     <h2>My Reservation Requests</h2>
-    <div class="reservations">
-      <% @my_reservations.each do |my_res| %>
+    <% @my_reservations.each do |my_res| %>
         <div class="reservation">
           <div class="reservation-content">
-            <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer" class="avatar-large">
+            <% if my_res.toothbrush.photos.any? %>
+              <%= cl_image_path my_res.toothbrush.photos.first.key %>
+            <% else %>
+              <%= asset_path("no_image.jpg") %>
+            <% end %>
             <p><small><%= my_res.start_date %></small></p>
             <p><%= my_res.toothbrush.title %></p>
           </div>
@@ -28,19 +28,28 @@
   </div>
 <% end %>
 
-<% if !@my_bookings.nil? %>
+<% if @my_bookings.any? %>
   <div class="container">
     <h2>My Bookings</h2>
     <div class="reservations">
       <% @my_bookings.each do |book| %>
         <div class="reservation">
-          <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer" class="avatar-large">
+          <% if book.toothbrush.photos.any? %>
+            <%= cl_image_path book.toothbrush.photos.first.key %>
+          <% else %>
+            <%= image_tag "no_image.jpg" %>
+          <% end %>
           <div class="reservation-content">
             <p><small><%= book.start_date %></small></p>
             <p><%= book.toothbrush.title %></p>
           </div>
           <div class="reservation-actions">
-            <%= link_to ('<i class="fas fa-user-plus"></i>').html_safe, reservation_path(book.id), method: 'put', class: 'btn-more-info' %>
+            <% if book.confirmed? %>
+              <i class="fa-solid fa-calendar-check confirmed"></i>
+            <% else %>
+              <i class="fa-solid fa-calendar-check not-confirmed"></i>
+            <% end %>
+              <%# <%= link_to ('<i class="fas fa-user-plus"></i>').html_safe, reservation_path(book.id), method: 'put', class: 'btn-more-info' %>
           </div>
         </div>
       <% end %>

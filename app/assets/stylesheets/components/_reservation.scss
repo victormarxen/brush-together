@@ -10,9 +10,15 @@
   border-bottom: 1px solid rgb(235,235,235);
 }
 
-.reservation:last-child {
-  border-bottom: none;
+.reservation img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
 }
+
+// .reservation:last-child {
+//   border-bottom: none;
+// }
 .reservation .reservation-content {
   flex-grow: 1;
   padding: 0 24px;
@@ -32,9 +38,19 @@
   display: flex;
   transition: ease .3s;
 }
+.reservation .reservation-actions .confirmed {
+  color: green;
+  font-size: 50px;
+}
+
+.reservation .reservation-actions .not-confirmed {
+  color: rgb(156, 146, 55);
+  font-size: 50px;
+}
+
 
 .reservation:hover .reservation-actions {
-  opacity: 1;
+  opacity: 0.5;
 }
 
 .reservation .reservation-actions a {
