@@ -24,3 +24,25 @@
 .navbar-webrush .navbar-brand img {
   width: 40px;
 }
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(76, 107, 219, 0.2);
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(144, 161, 217, 0.56);
+}
+
