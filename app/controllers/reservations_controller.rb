@@ -3,8 +3,9 @@ class ReservationsController < ApplicationController
   before_action :set_toothbrush, only: [:new, :create]
 
   def index
-    @reservations = Reservation.all
-    @reservations = policy_scope(Reservation)
+    @my_bookings = policy_scope(Reservation)
+    toothbrushes = Toothbrush.where(announcer: current_user)
+    @my_reservations = Reservation.where(toothbrush: toothbrushes)
   end
 
   def new
@@ -38,7 +39,19 @@ class ReservationsController < ApplicationController
     render 'reservations/announcer_pending'
   end
 
+  def update
+    @reservation.confirmed = !@reservation.confirmed
+  end
+
+  # def cancel_reservation
+  #   @reservation.confirmed = false
+  # end
+
   private
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
 
   def set_toothbrush
     @toothbrush = Toothbrush.find(params[:toothbrush_id])
