@@ -12,14 +12,14 @@ class ToothbrushesController < ApplicationController
       {
         lat: toothbrush.latitude,
         lng: toothbrush.longitude,
-        info_window: render_to_string(partial: "pages/info_window", locals: {toothbrush: toothbrush}),
+        info_window: render_to_string(partial: "toothbrushes/info_window", locals: {toothbrush: toothbrush}),
         image_url: helpers.asset_url("brush.jpg")
       }
     end
   end
 
   def show
-    
+
     @review = Review.new
     authorize @toothbrush
   end
