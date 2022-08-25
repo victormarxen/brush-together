@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_091336) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_101340) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_091336) do
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status"
+    t.boolean "confirmed", default: false
     t.index ["booker_id"], name: "index_reservations_on_booker_id"
     t.index ["toothbrush_id"], name: "index_reservations_on_toothbrush_id"
   end
