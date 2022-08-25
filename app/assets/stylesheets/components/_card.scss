@@ -19,12 +19,14 @@
 }
 .cards-container .cards {
   flex-grow: 1;
+  padding-right: 20px;
 }
 
 .cards-container .map {
   position: sticky;
   top: 0;
   width: 35%;
+  // padding-left: 20px;
   // height: 1000px;
   // height: 100%;
 }
@@ -115,13 +117,14 @@
   }
 }
 
-.btn {
+.btn-like {
   position: absolute;
   right: 10px;
   top: -190px;
   width: 40px;
   }
 
-.btn:hover{
+.btn-like:hover{
   border-color: red;
+  cursor: pointer;
 }

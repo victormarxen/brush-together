@@ -6,18 +6,13 @@
   <div class="cards">
     <% @toothbrushes.each do |toothbrush| %>
       <div class="card-toothbrush">
-      <%# <%= link_to ('<i class="fa-solid fa-plus"></i>').html_safe, toothbrush_path(toothbrush.id), class: 'btn-more-info' %>
-      <%= link_to toothbrush_path(toothbrush.id) do %>
+        <%= link_to toothbrush_path(toothbrush.id) do %>
           <% if !toothbrush.photos.first.nil? %>
-          <div style="background-image: url(<%= cl_image_path(toothbrush.photos.first.key) %>);">
-           </div>
+            <div class="toothbrush-background-image" style="background-image: url('<%= cl_image_path toothbrush.photos.first.key %>');"></div>
           <% else %>
-          <div class="toothbrush-background-image" style="background-image: url(<%= asset_path("no_image.jpg") %>);">
-          <%# <p class="more-info"> more info </p> %>
-        </div>
-       <% end %>
-       <% end %>
-
+            <div class="toothbrush-background-image" style="background-image: url(<%= asset_path("no_image.jpg") %>);"></div>
+          <% end %>
+        <% end %>
 
         <div class="card-toothbrush-infos">
           <div>
@@ -26,9 +21,8 @@
             <p><%= toothbrush.category %></p>
           </div>
           <h2 class="card-toothbrush-pricing">$ <%= toothbrush.daily_price %></h2>
-          <div class="btn" roler="button" style="background-image:  url('assets/heart-button.jpeg');" id="round-avatar">
+          <div class="btn-like" roler="button" style="background-image:  url('assets/heart-button.jpeg');" id="round-avatar">
           </div>
-          <%# <%= link_to ('<i class="fa-solid fa-plus"></i>').html_safe, toothbrush_path(toothbrush.id), class: 'btn-more-info' %>
         </div>
       </div>
     <% end %>
