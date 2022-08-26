@@ -1,34 +1,51 @@
 <%= link_to "⬅", toothbrushes_path %>
 
 <div class="container">
-  <h1><%= @toothbrush.title %></h1>
-  <div class="col-9">
-      <% @toothbrush.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    <div class="container">
-      <ul style="list-style: none;">
-        <h4> Description: <%= @toothbrush.description %></h4>
-        <p>Location: <%= @toothbrush.location %></p>
-        <p>Color: <%= @toothbrush.color %></p>
-        <p>Category: <%= @toothbrush.category %></p>
-        <p>Price: €<%= @toothbrush.daily_price %></p>
-      </ul>
-        <%= link_to "Book", new_toothbrush_reservation_path(@toothbrush), class: 'btn btn-primary' %>
-        <%= link_to "Delete", toothbrush_path(@toothbrush), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} if policy(@toothbrush).destroy? %>
-    </div>
-  </div>
-  <div class="col-3">
-    <div class="container">
-      <div class="res-details">
-
+  <div class="container-show">
+    <div class="row">
+      <div class="col-lg-5 col-md-7 col-sm-9">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <% @toothbrush.photos.each do |photo| %>
+              <div class="carousel-item active">
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class:"d-block w-100" %>
+              </div>  
+            <% end %>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="container">
+          <ul style="list-style: none;">
+            <h4> Description: <%= @toothbrush.description %></h4>
+            <p>Location: <%= @toothbrush.location %></p>
+            <p>Color: <%= @toothbrush.color %></p>
+            <p>Category: <%= @toothbrush.category %></p>
+            <p>Price: €<%= @toothbrush.daily_price %></p>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-6">
+        <div class="container">
+          <div class="res-details">
+            <%= render 'reservations/form', toothbrush: @toothbrush, reservation: @reservation %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
 <br>
 <br>
-<div class="container" style="align-items: center">
+<br>
+<br>
+<div class="container">
   <div class="reviews-container">
     <h3>Reviews</h3>
     <ul class="list-group">
