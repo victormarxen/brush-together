@@ -1,8 +1,11 @@
 .navbar-webrush {
+  position: sticky;
+  top: 0;
   background-color: transparent;
   transition: 0.5s background-color ease;
   justify-content: space-between;
   background: white;
+  z-index: 1;
 }
 
 .navbar-webrush-white {
