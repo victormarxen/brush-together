@@ -2,7 +2,7 @@
 
   <div class="container">
     <h1>Find a toothbrush near you!</h1>
-    <%= link_to "Get started", toothbrushes_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "Book a Brush", toothbrushes_path, class: 'btn btn-primary btn-lg' %>
   </div>
 </div>
 <br>
@@ -13,116 +13,85 @@
     <div class="card-landing">
       <%= link_to '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe, '/toothbrushes', class: 'btn-card-landing' %>
       <h1>Search & Book</h1>
-      <p>Find the best toothbrushes in your area</p>
+      <p>Find the best brushes in your area</p>
     </div>
     <div class="card-landing">
       <%= link_to '<i class="fa-solid fa-sack-dollar"></i>'.html_safe, '/toothbrushes/new', class: 'btn-card-landing' %>
-      <h1>List & Earn</h1>
-      <p>Make an yield on your toothbrush</p>
+      <h1>Share & Earn</h1>
+      <p>Create an income with your brush</p>
     </div>
     <div class="card-landing">
       <%= link_to '<i class="fa-solid fa-face-grimace"></i>'.html_safe, '#', class: 'btn-card-landing' %>
       <h1>Brush & Smile</h1>
-      <p>Have fun</p>
+      <p>Be hygienic and clean your teeth</p>
     </div>
   </div>
 </div>
 <br>
-  <%# <br>
-  <section>
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-10 col-xl-8 text-center">
-        <h3 class="mb-4"><strong>Testimonials</h3>
-        <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-          Here some Brushers telling us how much enjoy WeBrush
-        </p>
-      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section>
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-xl-8 text-center">
+      <h3 class="mb-4">Reviews of Brushers</h3>
     </div>
-    <div class="row text-center">
-      <div class="col-md-4 mb-5 mb-md-0">
-        <div class="d-flex justify-content-center mb-4">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
-            class="rounded-circle shadow-1-strong" width="150" height="150" />
+  </div>
+<br>
+
+  <div class="row text-center d-flex align-items-stretch">
+    <div class="col-md-4 mb-5 mb-md-5 d-flex align-items-stretch">
+      <div class="card testimonial-card">
+        <div class="card-up" style="background-color: #9d789b;"></div>
+        <div class="avatar mx-auto bg-white">
+          <img src="assets/andre.jpg"
+            class="rounded-circle img-fluid img-thumbnail" />
         </div>
-        <h5 class="mb-3">Maria Smantha</h5>
-        <h6 class="text-primary mb-3">Web Developer</h6>
-        <p class="px-xl-3">
-          <i class="fas fa-quote-left pe-2"></i>I used the same Toothbrush more than 20 times, and my mouth feels fresher than ever.Highly recomend to put yours and share with many.
-        </p>
-        <ul class="list-unstyled d-flex justify-content-center mb-0">
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star-half-alt fa-sm text-warning"></i>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4 mb-5 mb-md-0">
-        <div class="d-flex justify-content-center mb-4">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
-            class="rounded-circle shadow-1-strong" width="150" height="150" />
-        </div>
-        <h5 class="mb-3">Lisa Cudrow</h5>
-        <h6 class="text-primary mb-3">Graphic Designer</h6>
-        <p class="px-xl-3">
-          <i class="fas fa-quote-left pe-2"></i>After I had my first experience with WeBrush, I couldn't stop sharing my Toothbrush and try new ones from many Brushers. Love WeBrush.
-        </p>
-        <ul class="list-unstyled d-flex justify-content-center mb-0">
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-          <li>
-            <i class="fas fa-star fa-sm text-warning"></i>
-          </li>
-        </ul>
-      </div>
-      <div class="col-md-4 mb-0">
-        <div class="d-flex justify-content-center mb-4">
-          <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
-            class="rounded-circle shadow-1-strong" width="150" height="150" />
-        </div>
-        <h5 class="mb-3">John Smith</h5>
-        <h6 class="text-primary mb-3">Marketing Specialist</h6>
-        <p class="px-xl-3">
-          <i class="fas fa-quote-left pe-2"></i>Every time I travel and I forget my toothbrush, now with WebBrush my life change.Thanks!
-        </p>
-          <ul class="list-unstyled d-flex justify-content-center mb-0">
-            <li>
-              <i class="fas fa-star fa-sm text-warning"></i>
-            </li>
-            <li>
-              <i class="fas fa-star fa-sm text-warning"></i>
-            </li>
-            <li>
-              <i class="fas fa-star fa-sm text-warning"></i>
-            </li>
-            <li>
-              <i class="fas fa-star fa-sm text-warning"></i>
-            </li>
-            <li>
-              <i class="far fa-star fa-sm text-warning"></i>
-            </li>
-          </ul>
+        <div class="card-body">
+          <h4 class="mb-4">Andre Bakiewicz</h4>
+          <h6 class="text-primary mb-3">Web Developer</h6>
+          <hr />
+          <p class="dark-grey-text mt-4">
+            <i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i>
+          </p>
         </div>
       </div>
     </div>
-  </section> %>
+    <div class="col-md-4 mb-5 mb-md-5 d-flex align-items-stretch">
+      <div class="card testimonial-card">
+        <div class="card-up" style="background-color: #7a81a8;"></div>
+        <div class="avatar mx-auto bg-white">
+          <img src="assets/victor.jpg"
+            class="rounded-circle img-fluid img-thumbnail" />
+        </div>
+        <div class="card-body">
+          <h4 class="mb-4">Victor Marxen</h4>
+          <h6 class="text-primary mb-3">Student</h6>
+          <hr />
+          <p class="dark-grey-text mt-4">
+            <i class="fas fa-quote-left pe-2"></i>After I had my first experience with WeBrush, I couldn't stop rent other peoples Toothbrush. I love WeBrush. <i class="fas fa-quote-left pe-2"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-5 d-flex align-items-stretch">
+      <div class="card testimonial-card">
+        <div class="card-up" style="background-color: rgba(108,133,150,255);"></div>
+        <div class="avatar mx-auto bg-white">
+          <img src="assets/alex.jpg"
+            class="rounded-circle img-fluid img-thumbnail" />
+        </div>
+        <div class="card-body">
+          <h4 class="mb-4">Alexander Costa</h4>
+          <h6 class="text-primary mb-3">Musican</h6>
+          <hr />
+          <p class="dark-grey-text mt-4">
+            <i class="fas fa-quote-left pe-2"></i>Every time I travelled and I forgot my toothbrush, now with WebBrush it changes. <i class="fas fa-quote-left pe-2"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

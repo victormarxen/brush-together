@@ -7,21 +7,20 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <%= form_with url: toothbrushes_path, method: :get, class: "d-flex my-3" do %>
+      <%= form_with url: toothbrushes_path, method: :get, class: "d-flex my-3 align-item-center" do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Discover"
         %>
-        <%= submit_tag "🪥", class: "btn btn-primary" %>
       <% end %>
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
-          <%= link_to "Find Brush", toothbrushes_path, class: "nav-link" %>
+          <%= link_to "Explore", toothbrushes_path, class: "nav-link" %>
         </li>
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "List Brush", new_toothbrush_path, class: "nav-link" %>
+            <%= link_to "Share", new_toothbrush_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown d-flex align-items-center">
             <%= image_tag "user.jpg", class: "icon-user", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
