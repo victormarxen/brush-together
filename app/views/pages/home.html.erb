@@ -2,7 +2,7 @@
 
   <div class="container">
     <h1>Find a toothbrush near you!</h1>
-    <%= link_to "Book a Brush", toothbrushes_path, class: 'btn btn-primary btn-lg' %>
+    <%= link_to "Book a Brush", toothbrushes_path, class: 'btn btn-info btn-lg' %>
   </div>
 </div>
 <br>
@@ -28,12 +28,31 @@
   </div>
 </div>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<section>
+
+<div class="container">
+  <h3 class="mb-4">Reviews of Brushers</h3>
+  <div class="cards-landing">
+    <div class="card-testimonials">
+      <%= image_tag "alex.jpg", class: 'avatar-brush' %>
+      <h2>Alexexander Costa</h2>
+      <h3>Web Developer</h3>
+      <p><i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i></p>
+    </div>
+    <div class="card-testimonials">
+      <%= image_tag "alex.jpg", class: 'avatar-brush' %>
+      <h2>Alexexander Costa</h2>
+      <h3>Web Developer</h3>
+      <p><i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i></p>
+    </div>
+    <div class="card-testimonials">
+      <%= image_tag "alex.jpg", class: 'avatar-brush' %>
+      <h2>Alexexander Costa</h2>
+      <h3>Web Developer</h3>
+      <p><i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i></p>
+    </div>
+  </div>
+</div>
+<%#
   <div class="row d-flex justify-content-center">
     <div class="col-md-10 col-xl-8 text-center">
       <h3 class="mb-4">Reviews of Brushers</h3>
@@ -94,4 +113,4 @@
       </div>
     </div>
   </div>
-</section>
+</section> %>
