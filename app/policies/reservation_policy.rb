@@ -14,7 +14,7 @@ class ReservationPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def announcer_pending?
+  def update?
     true
   end
 end

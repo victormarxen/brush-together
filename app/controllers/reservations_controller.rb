@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :reservation_params, only: [:create]
   before_action :set_toothbrush, only: [:new, :create]
+  before_action :set_reservation, only: [:update]
 
   def index
     @my_bookings = policy_scope(Reservation)
@@ -40,7 +41,15 @@ class ReservationsController < ApplicationController
   end
 
   def update
+    authorize @reservation
     @reservation.confirmed = !@reservation.confirmed
+    @reservation.save
+    redirect_to '/reservations'
+    # if @reservation.confirmed?
+    #   @reservation.confirmed = false
+    # else
+    #   @reservation.confirmed = true
+    # end
   end
 
   # def cancel_reservation

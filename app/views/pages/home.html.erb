@@ -1,36 +1,28 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(assets/wallpaper.jpg);">
 
   <div class="container">
-    <h1>Share your Toothbrush with others!</h1>
-    <div class="button-wrapper">
-      <button href='/toothbrushes' class="subscribe-button">Share yours!</button>
+    <h1>Find a toothbrush near you!</h1>
+    <%= link_to "Get started", toothbrushes_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>
+<br>
+<br>
+<div class="container">
+  <div class="cards-landing">
+    <div class="card-landing">
+      <%= link_to '<i class="fa-solid fa-magnifying-glass"></i>'.html_safe, '/toothbrushes', class: 'btn-card-landing' %>
+      <h1>Search & Book</h1>
+      <p>Find the best toothbrushes in your area</p>
     </div>
-  </div>
-  </div>
-
-<div class="homepage">
-  <div class="card" style="width: 30rem;">
-    <img class="card-img-top" src="https://images.pexels.com/photos/6187534/pexels-photo-6187534.jpeg?cs=srgb&dl=pexels-antoni-shkraba-6187534.jpg&fm=jpg" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">RENT</h5> <i class="fa-solid fa-sack-dollar"></i>
-      <p class="card-text">Rent your toothbrush arund the globe.</p>
+    <div class="card-landing">
+      <%= link_to '<i class="fa-solid fa-sack-dollar"></i>'.html_safe, '/toothbrushes/new', class: 'btn-card-landing' %>
+      <h1>List & Earn</h1>
+      <p>Make an yield on your toothbrush</p>
     </div>
-  </div>
-
-  <div class="card" style="width: 30rem;">
-    <img class="card-img-top" src="https://images.pexels.com/photos/4588018/pexels-photo-4588018.jpeg?cs=srgb&dl=pexels-anna-shvets-4588018.jpg&fm=jpg" alt="Card image cap">
-    <div class="card-body">
-    <h5 class="card-title">SHARE</h5> <i class="fa-solid fa-handshake-simple"></i>
-      <p class="card-text">Share your toothbrush with millions.</p>
-    </div>
-  </div>
-
-  <%# <div class="homepage"> %>
-  <div class="card" style="width: 30rem;">
-    <img class="card-img-top" src="https://images.unsplash.com/photo-1607612919430-43301d1ade15?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">BRUSH</h5> <i class="fa-solid fa-face-grimace"></i>
-      <p class="card-text">Brush your toothbrush anywhere.</p>
+    <div class="card-landing">
+      <%= link_to '<i class="fa-solid fa-face-grimace"></i>'.html_safe, '#', class: 'btn-card-landing' %>
+      <h1>Brush & Smile</h1>
+      <p>Have fun</p>
     </div>
   </div>
 </div>
