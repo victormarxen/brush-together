@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       redirect_to toothbrush_path(@toothbrush), notice: 'Reservation requested.'
     else
-      render :new, status: :unprocessable_entity
+      render 'toothbrushes/show', status: :unprocessable_entity
     end
   end
 
@@ -33,12 +33,12 @@ class ReservationsController < ApplicationController
     redirect_to toothbrushes_path, status: :see_other
   end
 
-  def announcer_pending
-    # authorize @reservation
-    toothbrushes = Toothbrush.where(announcer: current_user)
-    @reservations = Reservation.where(toothbrush: toothbrushes)
-    render 'reservations/announcer_pending'
-  end
+  # def announcer_pending
+  #   # authorize @reservation
+  #   toothbrushes = Toothbrush.where(announcer: current_user)
+  #   @reservations = Reservation.where(toothbrush: toothbrushes)
+  #   render 'reservations/announcer_pending'
+  # end
 
   def update
     authorize @reservation
