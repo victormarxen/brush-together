@@ -24,11 +24,14 @@
 
 <br>
 <div class="container">
-  <h3>Reviews</h3>
+  <h3><%= pluralize @toothbrush.reviews.size, "Review" %></h3>
   <ul class="list-group">
+      <% if @toothbrush.reviews.blank? %> <strong>Be the first to leave a review for <%= @toothbrush.title %></strong>
+  <% else %>
     <% @toothbrush.reviews.each do |review| %>
       <li class="list-group-item"><%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown"%> <strong><%= review.user.username %></strong> - <%= review.comment %> (Rating: <%= review.rating %> / 5)</li>
     <% end %>
+  <% end %>
   </ul>
   <br>
 
