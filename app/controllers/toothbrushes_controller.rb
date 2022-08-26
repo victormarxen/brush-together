@@ -20,6 +20,7 @@ class ToothbrushesController < ApplicationController
 
   def show
     @review = Review.new
+    @reservation = Reservation.new
     authorize @toothbrush
   end
 

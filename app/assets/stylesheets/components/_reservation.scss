@@ -5,7 +5,7 @@
 .reservation {
   display: flex;
   align-items: center;
-  background: rgb(237, 241, 247);
+  background: rgb(248, 249, 250);
   padding: 8px 16px;
   border: 1px solid rgb(235,235,235);
 }
@@ -20,9 +20,6 @@
   object-fit: cover;
 }
 
-// .reservation:last-child {
-//   border-bottom: none;
-// }
 .reservation .reservation-content {
   flex-grow: 1;
   padding: 0 24px;
@@ -104,4 +101,9 @@
 
 .card-reservation .card-reservation-infos {
   padding: 16px;
+}
+
+.container-show {
+  padding-top: 30px;
+  // align-items: center;
 }

@@ -27,8 +27,8 @@
                   <% end %>
                   <div class="reservation-content">
                     <p><%= res.toothbrush.title %></p>
-                    <p>From: <small><%= res.start_date.strftime("%d/%m/%Y %H:%M") %></small>
-                      to: <small><%= res.end_date.strftime("%d/%m/%Y %H:%M") %></small></p>
+                    <p>From: <small><%= res.start_date.strftime("%d/%m/%Y") %></small>
+                      to: <small><%= res.end_date.strftime("%d/%m/%Y") %></small></p>
                     <p><%= res.toothbrush.location %></p>
                   </div>
                   <div class="reservation-actions" data-controller='confirm-reservation' data-action="click">
@@ -55,8 +55,8 @@
               <% end %>
             <div class="reservation-content">
                 <p><%= book.toothbrush.title %></p>
-                <p>From: <small><%= book.start_date.strftime("%d/%m/%Y %H:%M") %></small>
-                  to: <small><%= book.end_date.strftime("%d/%m/%Y %H:%M") %></small></p>
+                <p>From: <small><%= book.start_date.strftime("%d/%m/%Y") %></small>
+                  to: <small><%= book.end_date.strftime("%d/%m/%Y") %></small></p>
                 <p><%= book.toothbrush.location %></p>
               </div>
               <div class="reservation-actions" data-controller='confirm-reservation'>
