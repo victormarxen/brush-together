@@ -22,13 +22,13 @@
             <p><%= toothbrush.category %></p>
           </div>
           <h2 class="card-toothbrush-pricing">$ <%= toothbrush.daily_price %></h2>
-          <div class="btn-like" roler="button" style="background-image:  url('assets/heart-button.jpeg');" id="round-avatar">
-          </div>
+          <%# <i class="fa-solid fa-heart"></i> %>
+          <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, '#', class: 'btn-like' %>
         </div>
       </div>
     <% end %>
   </div>
-  <div style="width: 40%; height: 600px;"
+  <div id='map-brush' style="width: 40%; height: 600px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
