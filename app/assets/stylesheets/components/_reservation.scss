@@ -5,9 +5,13 @@
 .reservation {
   display: flex;
   align-items: center;
-  background: white;
+  background: rgb(237, 241, 247);
   padding: 8px 16px;
-  border-bottom: 1px solid rgb(235,235,235);
+  border: 1px solid rgb(235,235,235);
+}
+
+.reservation:hover {
+  background-color: $aqua-gray;
 }
 
 .reservation img {
@@ -34,7 +38,7 @@
   font-weight: bold;
 }
 .reservation .reservation-actions {
-  opacity: 0.5;
+  opacity: 0.4;
   display: flex;
   transition: ease .3s;
 }

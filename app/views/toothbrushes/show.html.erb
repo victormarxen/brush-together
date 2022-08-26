@@ -2,27 +2,32 @@
 
 <div class="container">
   <h1><%= @toothbrush.title %></h1>
-
-  <div class="container">
-    <% @toothbrush.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
+  <div class="col-9">
+      <% @toothbrush.photos.each do |photo| %>
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    <div class="container">
+      <ul style="list-style: none;">
+        <h4> Description: <%= @toothbrush.description %></h4>
+        <p>Location: <%= @toothbrush.location %></p>
+        <p>Color: <%= @toothbrush.color %></p>
+        <p>Category: <%= @toothbrush.category %></p>
+        <p>Price: €<%= @toothbrush.daily_price %></p>
+      </ul>
+        <%= link_to "Book", new_toothbrush_reservation_path(@toothbrush), class: 'btn btn-primary' %>
+        <%= link_to "Delete", toothbrush_path(@toothbrush), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} if policy(@toothbrush).destroy? %>
+    </div>
   </div>
+  <div class="col-3">
+    <div class="container">
+      <div class="res-details">
 
-  <ul style="list-style: none;">
-    <h4> Description: <%= @toothbrush.description %></h4>
-    <p>Location: <%= @toothbrush.location %></p>
-    <p>Color: <%= @toothbrush.color %></p>
-    <p>Category: <%= @toothbrush.category %></p>
-    <p>Price: €<%= @toothbrush.daily_price %></p>
-  </ul>
-
-    <%= link_to "Book", new_toothbrush_reservation_path(@toothbrush), class: 'btn btn-primary' %>
-
-    <%= link_to "Delete", toothbrush_path(@toothbrush), class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: "Delete '#{@toothbrush.title}' Toothbrush?"} if policy(@toothbrush).destroy? %>
+      </div>
+    </div>
+  </div>
 </div>
-
 <br>
+
 <div class="container">
   <h3><%= pluralize @toothbrush.reviews.size, "Review" %></h3>
   <ul class="list-group">
@@ -35,6 +40,7 @@
   </ul>
   <br>
 
-  <h5>Add your review below:</h5>
-  <%= render 'reviews/form', toothbrush: @toothbrush, review: @review %>
+    <h5>Add your review below:</h5>
+    <%= render 'reviews/form', toothbrush: @toothbrush, review: @review %>
+  </div>
 </div>
