@@ -33,9 +33,9 @@
                   </div>
                   <div class="reservation-actions" data-controller='confirm-reservation' data-action="click">
                     <% if res.confirmed? %>
-                      <%= link_to '<i class="fa-solid fa-calendar-check confirmed"></i>'.html_safe, reservation_path(res), data: {turbo_method: :put, turbo_confirm: "Confirm?"}%>
+                      <%= link_to '<i class="fa-solid fa-calendar-check confirmed"></i>'.html_safe, reservation_path(res), data: {turbo_method: :put, turbo_confirm: "Are you sure you want to cancel this reservation?"}%>
                     <% else %>
-                      <%= link_to '<i class="fa-solid fa-calendar-check not-confirmed"></i>'.html_safe, reservation_path(res), data: {turbo_method: :put, turbo_confirm: "Confirm?"}%>
+                      <%= link_to '<i class="fa-solid fa-calendar-check not-confirmed"></i>'.html_safe, reservation_path(res), data: {turbo_method: :put, turbo_confirm: "Are you sure you want to confirm this reservation?"}%>
                     <% end %>
                   </div>
                 </div>
@@ -61,7 +61,7 @@
               </div>
               <div class="reservation-actions" data-controller='confirm-reservation'>
                 <% if book.confirmed? %>
-                  <i class="fa-solid fa-calendar-check confirmed"></i>
+                  <%= link_to '<i class="fa-solid fa-calendar-check confirmed"></i>'.html_safe, reservation_path(book), data: {turbo_method: :put, turbo_confirm: "Are you sure you want to cancel this booking?"}%>
                 <% else %>
                   <i class="fa-solid fa-calendar-check not-confirmed"></i>
                 <% end %>
