@@ -27,18 +27,16 @@
   </div>
 </div>
 <br>
-
-<div class="container">
-  <h3><%= pluralize @toothbrush.reviews.size, "Review" %></h3>
-  <ul class="list-group">
-      <% if @toothbrush.reviews.blank? %> <strong>Be the first to leave a review for <%= @toothbrush.title %></strong>
-  <% else %>
-    <% @toothbrush.reviews.each do |review| %>
-      <li class="list-group-item"><%= image_tag "user.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown"%> <strong><%= review.user.username %></strong> - <%= review.comment %> (Rating: <%= review.rating %> / 5)</li>
-    <% end %>
-  <% end %>
-  </ul>
-  <br>
+<br>
+<div class="container" style="align-items: center">
+  <div class="reviews-container">
+    <h3>Reviews</h3>
+    <ul class="list-group">
+      <% @toothbrush.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.user.username %> - <%= review.comment %> (Rating: <%= review.rating %> / 5)</li>
+      <% end %>
+    </ul>
+    <br>
 
     <h5>Add your review below:</h5>
     <%= render 'reviews/form', toothbrush: @toothbrush, review: @review %>
