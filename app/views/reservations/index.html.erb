@@ -6,11 +6,17 @@
 <% end %>
 
 <div class="container">
-  <div class="row">
-    <div class="col-6">
-      <div class="container">
-        <h2>Reservation requests</h2>
-          <% if @my_reservations.any? %>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Reservation requests</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Bookings</button>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+      <% if @my_reservations.any? %>
             <div class="reservations">
               <% @my_reservations.each do |res| %>
                 <div class="reservation">
@@ -36,55 +42,34 @@
               <% end %>
             </div>
         <% end %>
-      </div>
     </div>
-    <div class="col-6">
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
       <% if @my_bookings.any? %>
-        <div class="container">
-          <h2>Booking requests</h2>
-          <div class="reservations">
-            <% @my_bookings.each do |book| %>
-              <div class="reservation">
-                <% if book.toothbrush.photos.any? %>
-                  <%= image_tag cl_image_path book.toothbrush.photos.first.key %>
-                <% else %>
-                  <%= image_tag "no_image.jpg" %>
-                <% end %>
-              <div class="reservation-content">
-                  <p><%= book.toothbrush.title %></p>
-                  <p>From: <small><%= book.start_date.strftime("%d/%m/%Y %H:%M") %></small>
-                    to: <small><%= book.end_date.strftime("%d/%m/%Y %H:%M") %></small></p>
-                  <p><%= book.toothbrush.location %></p>
-                </div>
-                <div class="reservation-actions" data-controller='confirm-reservation'>
-                  <% if book.confirmed? %>
-                    <i class="fa-solid fa-calendar-check confirmed"></i>
-                  <% else %>
-                    <i class="fa-solid fa-calendar-check not-confirmed"></i>
-                  <% end %>
-                </div>
+        <div class="reservations">
+          <% @my_bookings.each do |book| %>
+            <div class="reservation">
+              <% if book.toothbrush.photos.any? %>
+                <%= image_tag cl_image_path book.toothbrush.photos.first.key %>
+              <% else %>
+                <%= image_tag "no_image.jpg" %>
+              <% end %>
+            <div class="reservation-content">
+                <p><%= book.toothbrush.title %></p>
+                <p>From: <small><%= book.start_date.strftime("%d/%m/%Y %H:%M") %></small>
+                  to: <small><%= book.end_date.strftime("%d/%m/%Y %H:%M") %></small></p>
+                <p><%= book.toothbrush.location %></p>
               </div>
-            <% end %>
-          </div>
+              <div class="reservation-actions" data-controller='confirm-reservation'>
+                <% if book.confirmed? %>
+                  <i class="fa-solid fa-calendar-check confirmed"></i>
+                <% else %>
+                  <i class="fa-solid fa-calendar-check not-confirmed"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
         </div>
       <% end %>
-    </div>
-  </div>
-
-</div>
-
-
-<div class="tabbable"> <!-- Only required for left/right tabs -->
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
-    <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="tab1">
-      <p>I'm in Section 1.</p>
-    </div>
-    <div class="tab-pane" id="tab2">
-      <p>Howdy, I'm in Section 2.</p>
     </div>
   </div>
 </div>
