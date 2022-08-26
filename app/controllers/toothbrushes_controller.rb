@@ -19,7 +19,6 @@ class ToothbrushesController < ApplicationController
   end
 
   def show
-
     @review = Review.new
     authorize @toothbrush
   end
