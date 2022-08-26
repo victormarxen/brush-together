@@ -183,12 +183,20 @@
   font-size: 70px;
 }
 
+.cards-testimonials {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
 .card-testimonials {
   overflow: hidden;
-  background: white;
+  background: #E0E8ED;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 400px;
   height: 300px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -199,4 +207,14 @@
   align-self: center;
   border-radius: 50%;
   width: 80px;
+}
+
+.container-banner{
+  // height: 100px;
+  text-align: left;
+  margin-left: 40px;
+  // background-image: url('toothbrush-banner.jpg');
+  // background-size: cover;
+  // margin-left: 0px;
+  // margin-right: 0px;
 }

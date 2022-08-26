@@ -1,7 +1,7 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('wallpaper.jpg')%>)">
 
-  <div class="container">
-    <h1>Find a toothbrush near you!</h1>
+  <div class="container-banner">
+    <h1>Find a Brush near you!</h1>
     <%= link_to "Book a Brush", toothbrushes_path, class: 'btn btn-info btn-lg' %>
   </div>
 </div>
@@ -28,27 +28,32 @@
   </div>
 </div>
 <br>
-
+<br>
+<br>
+<br>
 <div class="container">
   <h3 class="mb-4">Reviews of Brushers</h3>
-  <div class="cards-landing">
+  <div class="cards-testimonials">
     <div class="card-testimonials">
-      <%= image_tag "alex.jpg", class: 'avatar-brush' %>
-      <h2>Alexexander Costa</h2>
-      <h3>Web Developer</h3>
-      <p><i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i></p>
+      <%= image_tag "andre.jpg", class: 'avatar-brush' %>
+      <br>
+      <h3>Andre Bakiewicz</h3>
+      <h6><strong>Web Developer</strong></h6>
+      <p>"I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others."</p>
+    </div>
+    <div class="card-testimonials">
+      <%= image_tag "victor.jpg", class: 'avatar-brush' %>
+      <br>
+      <h3>Victor Marxen</h3>
+      <h6><strong>Student</strong></h6>
+      <p> "I had my first experience with WeBrush, I couldn't stop rent other peoples Toothbrush. I love WeBrush."</p>
     </div>
     <div class="card-testimonials">
       <%= image_tag "alex.jpg", class: 'avatar-brush' %>
-      <h2>Alexexander Costa</h2>
-      <h3>Web Developer</h3>
-      <p><i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i></p>
-    </div>
-    <div class="card-testimonials">
-      <%= image_tag "alex.jpg", class: 'avatar-brush' %>
-      <h2>Alexexander Costa</h2>
-      <h3>Web Developer</h3>
-      <p><i class="fas fa-quote-left pe-2"></i>I used the same brush more than 20 times, and my mouth feels fresher than ever. I highly recommend to share yours with others. <i class="fas fa-quote-left pe-2"></i></p>
+      <br>
+      <h3>Alexexander Costa</h3>
+      <h6><strong>Musican</strong></h6>
+      <p>"Every time I travelled and I forgot my toothbrush, now with WebBrush it changes. I never have to worry about it anymore."</p>
     </div>
   </div>
 </div>
