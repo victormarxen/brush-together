@@ -21,7 +21,7 @@
             <p><%= toothbrush.location %></p>
             <p><%= toothbrush.category %></p>
           </div>
-          <h2 class="card-toothbrush-pricing">$ <%= toothbrush.daily_price %></h2>
+          <h2 class="card-toothbrush-pricing">€ <%= toothbrush.daily_price %></h2>
           <%# <i class="fa-solid fa-heart"></i> %>
           <%= link_to '<i class="fa-solid fa-heart"></i>'.html_safe, '#', class: 'btn-like' %>
         </div>
@@ -40,4 +40,3 @@
 <div class="container">
   <%= link_to "Create an Offer", new_toothbrush_path, class: 'btn btn-info' %>
 </div>
-
