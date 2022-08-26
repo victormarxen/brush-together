@@ -12,3 +12,6 @@ application.register("location-autocomplete", LocationAutocompleteController)
 
 import MapController from "./map_controller"
 application.register("map", MapController)
+
+import ConfirmReservationController from "./confirm_reservation_controller"
+application.register("confirm-reservation", ConfirmReservationController)
